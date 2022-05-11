@@ -1,0 +1,14 @@
+ROT13 ("rotar 13 posiciones") es un cifrado utilizado para ocultar un texto
+sustituyendo cada letra por la letra que está trece posiciones por delante de ella en el alfabeto.
+Por ejemplo, A se convierte en N.
+
+Implementar una función que tome un string y devuelva a ese string cifrado con ROT13.
+ Si hay números o caracteres especiales incluídos en el string,
+ deberían permanecer sin cambios en el resultado; solamente deberían modificarse
+  las letras del alfabeto latino.
+
+
+Pasos de TDD:
+1. Escribir un test -> debería fallar
+2. Implementar la solución para que todos los tests pasen
+3. Reflexionar: puedo mejorar el código? -> Si sí, entonces refactorizar.
