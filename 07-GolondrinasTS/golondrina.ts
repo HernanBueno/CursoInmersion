@@ -5,19 +5,19 @@ module.exports = class Golondrina {
     constructor(energiaEnJoules:number) {
         this._energiaEnJoules = energiaEnJoules;
     }
-    ganarEnergia(joulesASumar: number) {
+    ganarEnergia(joulesASumar: number) :void {
         this._energiaEnJoules = this._energiaEnJoules + joulesASumar;
     }
 
-    gastarEnergia(joulesARestar: number) {
+    gastarEnergia(joulesARestar: number) :void{
         this._energiaEnJoules = this._energiaEnJoules - joulesARestar;
     }
 
-    energiaGolondrina() {
+    energiaGolondrina() :number{
         return this._energiaEnJoules;
     }
 
-    comer(alimento) {
+    comer(alimento):void {
         if (alimento.cantidadEnGramos <= 0) {
             throw new Error("No hay comida");
         } 
@@ -25,7 +25,7 @@ module.exports = class Golondrina {
     }
 
 
-    volar(kilometros:number) {
+    volar(kilometros:number):void {
         if (kilometros <= 0) {
             throw new Error("La distancia no es valida");
         } 
@@ -39,17 +39,17 @@ module.exports = class Golondrina {
         
     }
 
-    haceLoQueQuieras() {
+    haceLoQueQuieras():void {
     
         this.estadoDeAnimo().queHacerSi(this);
     }
-    estaDebil() {
+    estaDebil():boolean {
         return this.energiaGolondrina() < 50;
     }
-    estaFeliz() {
+    estaFeliz():boolean {
         return this.energiaGolondrina() > 500;
     }
-    estadoDeAnimo() {
+    estadoDeAnimo(){
         return estadosDeAnimo.
             find(estadoDeAnimo => estadoDeAnimo.comprobarAnimo(this));
     }
@@ -57,31 +57,31 @@ module.exports = class Golondrina {
 
 };
 const estadoDeAnimoDebil = {
-    queHacerSi(golondrina : Golondrina){
+    queHacerSi(golondrina ):void{
         const alpiste = new Alpiste(20);
         golondrina.comer(alpiste)
     },
 
-    comprobarAnimo(golondrina: Golondrina){
+    comprobarAnimo(golondrina):boolean{
         return golondrina.estaDebil()
     }
 }
 const estadoDeAnimoFeliz = {
 
-    queHacerSi(golondrina: Golondrina){
+    queHacerSi(golondrina):void{
         golondrina.volar(5);
 },
 
-comprobarAnimo(golondrina: Golondrina){
+comprobarAnimo(golondrina):boolean{
     return golondrina.estaFeliz()
 }
 
 }
 const estadoDeAnimoNormal = {
-    queHacerSi(golondrina: Golondrina){
+    queHacerSi(golondrina):void{
 
     },
-    comprobarAnimo(golondrina: Golondrina){
+    comprobarAnimo(golondrina):boolean{
         return !golondrina.estaDebil() && !golondrina.estaFeliz()
     }
 }

@@ -5,7 +5,7 @@ constructor(cantidadDeGramos){
     this._cantidadDeGramos = cantidadDeGramos
 }
 
-cantidadDeJoules(){
+cantidadDeJoules():number{
     return this._cantidadDeGramos * this._joulesPorGramo
 }
 }
